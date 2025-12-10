@@ -3,9 +3,12 @@ Author: Avery Mariol
 Professor Lehman 
 Course CS415 - Database systems
 Project Summary- 
-  describe the business, organization, and person the database is designed for.
+  This project designs a relational database for a Track and field coaching staff to manage athletes, competitive events and performance results. The database provides a structured way to
+  track athlete profiles, record performances, organize teams and analyze meet results.​
 data base use case - 
-  how users interact with the database, task they perform, how it supports decision making, and the operations
+  From a user's perspective, coaches are able to look up an athlete, view their season best times or distance, compare performance across events, and generate statistical 
+  reports to assist withtraining and competition decisions. ​
+  
 ER diagram 
 Mermaid Code: direction TB 
 
