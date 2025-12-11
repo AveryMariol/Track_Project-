@@ -463,7 +463,8 @@ UPDATE athlete SET year = 'SR' WHERE athlete_id = 10;​
 ROLLBACK;​
 ```
 
-Reports - <img width="682" height="642" alt="Screenshot 2025-12-09 104350" src="https://github.com/user-attachments/assets/a08ecc96-65a4-465c-aaeb-0e5cd859e22d" />
+Reports - 
+<img width="682" height="642" alt="Screenshot 2025-12-09 104350" src="https://github.com/user-attachments/assets/a08ecc96-65a4-465c-aaeb-0e5cd859e22d" />
 
 This chart report was created using power BI which imported directly from the MariaDB tables used in my project. Power BI automatically
 recognized the categories and allowed me to build this chart comparing the number of male and female athletes for each academic
