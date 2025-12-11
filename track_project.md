@@ -250,13 +250,13 @@ INSERT INTO coach (coach_name, team_id) VALUES
 ```
 
 
-
 SQL queries- 
 ```sql
 SELECT athlete_id, first_name, last_name, gender, year, team_id
 FROM athlete
 ORDER BY year, last_name;
 ```
+Sample Output
 ```
 +------------+------------+-----------+--------+------+---------+
 | athlete_id | first_name | last_name | gender | year | team_id |
@@ -283,6 +283,7 @@ ORDER BY year, last_name;
 SELECT athlete_id, CONCAT(first_name, ' ', last_name)AS
 full_name FROM athlete;​
 ```
+Sample Output
 ```
 +------------+----------------+
 | athlete_id | full_name      |
@@ -312,6 +313,8 @@ SELECT
     LEFT(first_name, 1) AS first_initial
 FROM athlete;
 ```
+Sample Output
+```
 +------------+-----------+---------------+
 | first_name | last_name | first_initial |
 +------------+-----------+---------------+
@@ -339,6 +342,7 @@ FROM athlete;
     -> GROUP BY team_id
     -> HAVING COUNT(*) > 5;
 ```
+Sample Output
 ```
 +---------+---------------+
 | team_id | athlete_count |
@@ -357,6 +361,7 @@ JOIN athlete a ON r.athlete_id = a.athlete_id
 JOIN event e ON r.event_id = e.event_id
 JOIN team t ON a.team_id = t.team_id;
 ```
+Sample Output
 ```
 +------------+------------+-------------+
 | first_name | event_name | performance |
@@ -383,6 +388,7 @@ JOIN team t ON a.team_id = t.team_id;
 SELECT t.team_name, a.first_name AS athlete FROM team t LEFT
 JOIN athlete a ON t.team_id = a.team_id;​
 ```
+Sample Output
 ```
 +-----------------------+----------+
 | team_name             | athlete  |
@@ -422,6 +428,7 @@ DELETE FROM result WHERE result_id = 200;​
 CREATE VIEW upperclassman AS SELECT athlete_id, first_name,
 last_name, year FROM athlete WHERE year IN ('JR', 'SR');​
 ```
+Sample Output
 ```
 +------------+------------+-----------+------+
 | athlete_id | first_name | last_name | year |
