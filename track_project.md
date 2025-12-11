@@ -72,8 +72,7 @@ table description -
 
   
 Create tables- 
--- Note: make sure you are in the right database
--- USE foresters_give;
+The following SQL creates each table in the track project
 
 ---------------
 --coach table
@@ -159,6 +158,8 @@ CREATE TABLE result (
 
 
 Insert Data-
+The following SQL inserts sample data for each table in the track project
+
 -----
 --Athlete sample data (15 rows)
 -----
@@ -417,7 +418,8 @@ UPDATE athlete SET year = 'SR' WHERE athlete_id = 10;​
 ROLLBACK;​
 
 
-Reports - <img width="1408" height="548" alt="Screenshot 2025-09-18 121636" src="https://github.com/user-attachments/assets/ea869d30-6d97-4491-8173-1758463a09d0" />
+Reports - <img width="682" height="642" alt="Screenshot 2025-12-09 104350" src="https://github.com/user-attachments/assets/a08ecc96-65a4-465c-aaeb-0e5cd859e22d" />
+
 This chart report was created using power BI which imported directly from the MariaDB tables used in my project. Power BI automatically
 recognized the categories and allowed me to build this chart comparing the number of male and female athletes for each academic
 year. The chart aggregates athlete records using a “Count of athlete_id” grouped by both year and gender. This report is valuable
