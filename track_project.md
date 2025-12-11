@@ -1,19 +1,20 @@
+# Track Project
+**Author:** Avery Mariol  
+**Professor:** Lehman  
+**Course:** CS415 - Database Systems
 
-Track Project 
-Author: Avery Mariol
-Professor Lehman 
-Course CS415 - Database systems
-Project Overview- 
+
+Project Overview- <br>
   This project designs a relational database for a Track and field coaching staff to manage athletes, competitive events and performance results. The database provides a structured way to track athlete profiles, record performances, organize teams and analyze meet results.​
-
+<br>
 Users View - 
-  From a user's perspective, coaches are able to look up an athlete, view their season best times or distance, compare performance across events, and generate statistical 
-  reports to assist withtraining and competition decisions. ​
-  
+  From a user's perspective, coaches are able to look up an athlete, view their season best times or distance, compare performance across events, and generate statistical reports to assist withtraining and competition decisions. ​
+  <br>
 Database ER Model
 <img width="2229" height="2264" alt="Track_Project_ERdiagram" src="https://github.com/user-attachments/assets/3fb85bf8-9baa-4180-b8da-ca775d1c6cf2" />
-Mermaid Code: direction TB 
-
+Mermaid ER Code: 
+```sql
+erdiagram
     Teams { 
         INT team_id PK ""   
         VARCHAR(100) team_name  ""   
@@ -62,7 +63,8 @@ Mermaid Code: direction TB
     Teams ||--o{Athletes : "has" 
 
     Athletes ||--o{ Results : "records" 
-    Events ||--|{Results : "appears in" 
+    Events ||--|{Results : "appears in"
+```
 
 Design explanation - The database includes five core tables with normalized relations, Teams, Coaches, Athletes, Events and results. Each table stores a category of information to avoid redundancy and have consistent data. Athlete and event information are separated from
 performance data which prevents repeated storage of athlete names or event properties in the results table.​
