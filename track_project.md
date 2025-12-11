@@ -251,6 +251,7 @@ INSERT INTO coach (coach_name, team_id) VALUES
 
 
 SQL queries- 
+Query 1-
 ```sql
 SELECT athlete_id, first_name, last_name, gender, year, team_id
 FROM athlete
@@ -279,6 +280,7 @@ Sample Output
 +------------+------------+-----------+--------+------+---------+
 15 rows in set (0.015 sec)
 ```
+Query 2-
 ```sql
 SELECT athlete_id, CONCAT(first_name, ' ', last_name)AS
 full_name FROM athlete;​
@@ -306,6 +308,7 @@ Sample Output
 +------------+----------------+
 15 rows in set (0.006 sec)
 ```
+Query 3-
 ```sql
 SELECT
     first_name,
@@ -336,6 +339,7 @@ Sample Output
 +------------+-----------+---------------+
 15 rows in set (0.011 sec)
 ```
+Query 4-
 ```sql
  SELECT team_id, COUNT(*) AS athlete_count
     -> FROM athlete
@@ -351,6 +355,7 @@ Sample Output
 +---------+---------------+
 1 row in set (0.002 sec)
 ```
+Query 5-
 ```sql
 SELECT 
     a.first_name, 
@@ -384,6 +389,7 @@ Sample Output
 +------------+------------+-------------+
 15 rows in set (0.014 sec)
 ```
+Query 6-
 ```sql
 SELECT t.team_name, a.first_name AS athlete FROM team t LEFT
 JOIN athlete a ON t.team_id = a.team_id;​
@@ -416,14 +422,17 @@ Sample Output
 +-----------------------+----------+
 20 rows in set (0.015 sec)
 ```
+Query 7-
 ```sql
 UPDATE athlete
 SET year = 'SR'
 WHERE athlete_id = 10;
 ```
+Query 8-
 ```sql
 DELETE FROM result WHERE result_id = 200;​
 ```
+Query 9-
 ```sql
 CREATE VIEW upperclassman AS SELECT athlete_id, first_name,
 last_name, year FROM athlete WHERE year IN ('JR', 'SR');​
@@ -443,6 +452,7 @@ Sample Output
 +------------+------------+-----------+------+
 7 rows in set (0.025 sec)
 ```
+Query 10-
 ```sql
 START TRANSACTION;​
 ```
