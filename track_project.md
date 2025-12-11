@@ -74,6 +74,8 @@ table description -
 Create tables- 
 The following SQL creates each table in the track project
 
+```
+sql
 ---------------
 --coach table
 ---------------
@@ -155,7 +157,7 @@ CREATE TABLE result (
     CONSTRAINT result_ibfk_3
         FOREIGN KEY (meet_id) REFERENCES meet(meet_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+```
 
 Insert Data-
 The following SQL inserts sample data for each table in the track project
@@ -163,6 +165,7 @@ The following SQL inserts sample data for each table in the track project
 -----
 --Athlete sample data (15 rows)
 -----
+```sql
 INSERT INTO athlete (athlete_id, first_name, last_name, gender, year, team_id, height_cm, weight_lbs) VALUES
 (1, 'Jordan', 'Smith', 'M', 'JR', 1, 180, 165),
 (2, 'Avery', 'Coleman', 'F', 'SO', 1, 165, 130),
@@ -179,10 +182,11 @@ INSERT INTO athlete (athlete_id, first_name, last_name, gender, year, team_id, h
 (20, 'Zachary', 'Cole', 'M', 'JR', 1, 185, 180),
 (21, 'Sofia', 'Rivera', 'F', 'SR', 3, 159, 115),
 (22, 'Connor', 'James', 'M', 'SO', 2, 181, 168);
-
+```
 -----
 --Team sample data (8 rows)
 -----
+```sql
 INSERT INTO team (team_id, team_name, conference) VALUES
 (1, 'Falcons Track & Field', 'MAC'),
 (2, 'Falcons', 'North Division'),
@@ -192,10 +196,11 @@ INSERT INTO team (team_id, team_name, conference) VALUES
 (6, 'Riverside Athletics', 'East Division'),
 (7, 'Summit Striders', 'West Division'),
 (8, 'Valley Speedsters', 'South Division');
-
+```
 -----
 --Event sample data(10 rows)
 -----
+```sql
 INSERT INTO event (event_id, event_name, event_type) VALUES
 (1, '100m Dash', 'Track'),
 (2, 'Long Jump', 'Field'),
@@ -207,10 +212,11 @@ INSERT INTO event (event_id, event_name, event_type) VALUES
 (8, 'High Jump', 'Field'),
 (9, 'Shot Put', 'Field'),
 (10, 'Javelin Throw', 'Field');
-
+```
 -----
 --Result sample data(15 rows)
 -----
+```sql
 INSERT INTO result (result_id, athlete_id, event_id, meet_id, performance, place) VALUES
 (1, 1, 1, 1, '11.42', 1),
 (2, 2, 1, 1, '12.30', 2),
@@ -227,9 +233,11 @@ INSERT INTO result (result_id, athlete_id, event_id, meet_id, performance, place
 (13, 20, 1, 3, '11.10', 1),
 (14, 21, 7, 3, '16-00', 2),
 (15, 22, 4, 3, '2:18.80', 1);
-
+```
 -----
 Coaches sample data(8 rows)
+-----
+```sql
 INSERT INTO coach (coach_name, team_id) VALUES
 ('Coach Anderson', 1),
 ('Coach Bennett', 2),
@@ -239,14 +247,17 @@ INSERT INTO coach (coach_name, team_id) VALUES
 ('Coach Foster', 6),
 ('Coach Grant', 7),
 ('Coach Hayes', 8);
-
+```
 
 
 
 SQL queries- 
+```sql
 SELECT athlete_id, first_name, last_name, gender, year, team_id
 FROM athlete
 ORDER BY year, last_name;
+```
+```
 +------------+------------+-----------+--------+------+---------+
 | athlete_id | first_name | last_name | gender | year | team_id |
 +------------+------------+-----------+--------+------+---------+
@@ -267,10 +278,12 @@ ORDER BY year, last_name;
 |         21 | Sofia      | Rivera    | F      | SR   |       3 |
 +------------+------------+-----------+--------+------+---------+
 15 rows in set (0.015 sec)
-
-
+```
+```sql
 SELECT athlete_id, CONCAT(first_name, ' ', last_name)AS
 full_name FROM athlete;​
+```
+```
 +------------+----------------+
 | athlete_id | full_name      |
 +------------+----------------+
@@ -291,13 +304,14 @@ full_name FROM athlete;​
 |         22 | Connor James   |
 +------------+----------------+
 15 rows in set (0.006 sec)
-
-
+```
+```sql
 SELECT
     first_name,
     last_name,
     LEFT(first_name, 1) AS first_initial
 FROM athlete;
+```
 +------------+-----------+---------------+
 | first_name | last_name | first_initial |
 +------------+-----------+---------------+
@@ -318,20 +332,22 @@ FROM athlete;
 | Connor     | James     | C             |
 +------------+-----------+---------------+
 15 rows in set (0.011 sec)
-
-
+```
+```sql
  SELECT team_id, COUNT(*) AS athlete_count
     -> FROM athlete
     -> GROUP BY team_id
     -> HAVING COUNT(*) > 5;
+```
+```
 +---------+---------------+
 | team_id | athlete_count |
 +---------+---------------+
 |       1 |             6 |
 +---------+---------------+
 1 row in set (0.002 sec)
-
-
+```
+```sql
 SELECT 
     a.first_name, 
     e.event_name, 
@@ -340,6 +356,8 @@ FROM result r
 JOIN athlete a ON r.athlete_id = a.athlete_id
 JOIN event e ON r.event_id = e.event_id
 JOIN team t ON a.team_id = t.team_id;
+```
+```
 +------------+------------+-------------+
 | first_name | event_name | performance |
 +------------+------------+-------------+
@@ -360,10 +378,12 @@ JOIN team t ON a.team_id = t.team_id;
 | Sofia      | Long Jump  | 16-00       |
 +------------+------------+-------------+
 15 rows in set (0.014 sec)
-
-
+```
+```sql
 SELECT t.team_name, a.first_name AS athlete FROM team t LEFT
 JOIN athlete a ON t.team_id = a.team_id;​
+```
+```
 +-----------------------+----------+
 | team_name             | athlete  |
 +-----------------------+----------+
@@ -389,15 +409,20 @@ JOIN athlete a ON t.team_id = a.team_id;​
 | Valley Speedsters     | NULL     |
 +-----------------------+----------+
 20 rows in set (0.015 sec)
-
+```
+```sql
 UPDATE athlete
 SET year = 'SR'
 WHERE athlete_id = 10;
-
+```
+```sql
 DELETE FROM result WHERE result_id = 200;​
-
+```
+```sql
 CREATE VIEW upperclassman AS SELECT athlete_id, first_name,
 last_name, year FROM athlete WHERE year IN ('JR', 'SR');​
+```
+```
 +------------+------------+-----------+------+
 | athlete_id | first_name | last_name | year |
 +------------+------------+-----------+------+
@@ -410,13 +435,16 @@ last_name, year FROM athlete WHERE year IN ('JR', 'SR');​
 |         21 | Sofia      | Rivera    | SR   |
 +------------+------------+-----------+------+
 7 rows in set (0.025 sec)
-
+```
+```sql
 START TRANSACTION;​
-
+```
+```sql
 UPDATE athlete SET year = 'SR' WHERE athlete_id = 10;​
-
+```
+```sql
 ROLLBACK;​
-
+```
 
 Reports - <img width="682" height="642" alt="Screenshot 2025-12-09 104350" src="https://github.com/user-attachments/assets/a08ecc96-65a4-465c-aaeb-0e5cd859e22d" />
 
