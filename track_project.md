@@ -1,3 +1,4 @@
+<img width="2229" height="2264" alt="Track_Project_ERdiagram" src="https://github.com/user-attachments/assets/3fb85bf8-9baa-4180-b8da-ca775d1c6cf2" />
 Track Project 
 Author: Avery Mariol
 Professor Lehman 
